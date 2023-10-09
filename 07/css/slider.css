@@ -1,0 +1,35 @@
+/***** SLIDER *******/
+.slider{
+    max-width: 940px;
+    margin: 0px auto 30px auto;
+}
+.slider-viewer{
+    position: relative;/*needed for IE7*/
+    overflow: hidden;
+    height: 430px;}
+
+.slider-group{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.slide{
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: absolute;
+}
+.slide:first-child{
+    display: block;
+}
+
+/****** BUTTONS ********/
+.slide-button{
+    text-align: center;
+}
+.slide-btn{
+    border: none;
+    background: none;
+    color: #000;
+    font-size: 200%;
+}
