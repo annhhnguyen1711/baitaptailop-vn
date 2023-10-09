@@ -27,11 +27,38 @@ $('.slider').each(function(){                           //For every slider
             animateLeft = '100%';                                   //Animate the current group to the right
         }
         //Postion new slide to left (if less) or right (if more) of current
-        $slides.eq(newIndex).css( {left: slideLeft,displat:'block'});       
+        $slides.eq(newIndex).css( {left: slideLeft,display:'block'});       
 
         $group.animate( {left:animateLeft},function(){          //Animate slides and
-            $slides.eq(currentIndex).css
-
+            $slides.eq(currentIndex).css( {display:'none'});    //Hide previous slide
+            $slides.eq(newIndex).css( {left:0});                //Set position of the new item 
+            $group.css( {left: 0});                             //Set position of group of slides
+            currentIndex = newIndex;                            //Set currentIndex to the new image 
         });
     }
+
+    function advance(){                                         //Used to set
+        clearTimeout(timeout);                                  //Clear preavious timeout 
+        timeout = setTimeout(function(){                        //Set new time
+            if (currentIndex < ($slides.length - 1  )){         //If slide  < total slides
+                move(currentIndex + 1);                         //Move to the next slide
+            }else{                                              //Otherwise
+                move(0);                                        //Move to the first slide 
+            }
+        },4000);
+    }
+
+    $.each($slides,function(index){                            
+    //Creat a button element for the button
+    var $button = $('<button type="button" class="slide-btn">&bull;</button>');
+    if(index === currentIndex){                                                         //If indext is curenrt item 
+        $button.addClass('active');                                                     //Add the active class
+    }
+    $button.on('click',function(){                                                      //Creat event handler for the button
+        move(index);                                                                    //It call the move()function
+    }).appendTo('.slide-buttons');                                                     //Add to thu buttons holder
+    buttonsArray.push($button);                                                         //Add it to the button aray
+    });
+
+    advance();                                                                          //Script í set up,advance()to move it
 });
