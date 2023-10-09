@@ -32,4 +32,9 @@
     background: none;
     color: #000;
     font-size: 200%;
+    line-height: 0.5em;
+}
+.slide-btn.avtive,.slide-btn:hover{
+    color: #ed8e6c;
+    cursor: pointer;
 }
