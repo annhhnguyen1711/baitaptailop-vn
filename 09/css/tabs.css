@@ -1,0 +1,44 @@
+/***** TABS*******/
+.tabs-list{
+    margin: 0;
+    padding: 0;
+}
+.tabs-list li{
+    display: inline-block;
+    list-style-type: none;
+    background-color: #303030;
+    border-bottom: 3px solid #858585;
+    font-family: 'Jacques Francois ' serif;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+.tabs-list li a{
+    color: #f2f2f2;
+    display: block;
+    padding: 3px 10px 3px 10px;
+}
+
+/******* HOVER STATES *******/
+.tabs-list li.active a, .tabs-list li a:hover{
+    color: #666;
+    background-color: #e5e5e5;
+}
+.tabs-list li.active a, .tabs-list li a:hover{
+    color: #666;
+    background-color: #666;
+}
+
+/******** PANELS ********/
+.tab-panel{
+    display: none;
+    background-color: #e5e5e5;
+    color: #666;
+    min-height: 150px;
+    overflow: auto;
+}
+.tab-panel.active{
+    display: block;
+}
+.tab-panel p{
+    margin: 20px;
+}
